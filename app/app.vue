@@ -10,52 +10,47 @@
         </div>
       </template>
       <template #end>
-        <div class="flex items-center gap-2 [&> *]:transition-colors [&> *]:text-white  [&>*]:hover:text-green-400" >
-          <Button label="Sobre Mí" text plain class=""
-            @click="scrollTo('aboutMe')" />
-          <Button label="Proyectos" text plain class=""
-            @click="scrollTo('projects')" />
-          <Button label="Proceso" text plain class=""
-            @click="scrollTo('process')" />
-          <Button label="Testimonios" text plain class=""
-            @click="scrollTo('testimonials')" />
-          <Button label="FAQ" text plain class=""
-            @click="scrollTo('faq')" />
+        <div class="hidden md:flex items-center gap-2 [&> *]:transition-colors [&> *]:text-white  [&>*]:hover:text-green-400">
+          <Button label="Sobre Mí" text plain @click="scrollTo('aboutMe')" />
+          <Button label="Proyectos" text plain @click="scrollTo('projects')" />
+          <Button label="Proceso" text plain @click="scrollTo('process')" />
+          <Button label="Testimonios" text plain @click="scrollTo('testimonials')" />
+          <Button label="FAQ" text plain @click="scrollTo('faq')" />
           <Button label="Contacto" icon="pi pi-envelope" severity="contrast" @click="contactModalVisible = true" />
+        </div>
+        <div class="md:hidden flex items-center">
+          <Menu ref="menu" :model="toolbarMenu" popup />
+          <Button icon="pi pi-bars" class="p-button-text text-white" @click="$refs.menu.toggle($event)" aria-label="Menú" />
         </div>
       </template>
     </Toolbar>
 
     <!-- Hero Section Portafolio Personal -->
-    <main class="container mx-auto px-6 py-32 text-center relative overflow-hidden">
-      <div class="absolute inset-0 pointer-events-none" style="z-index:0;">
-        <div class="w-full h-full bg-gradient-to-br from-green-900 via-blue-900 to-gray-900" style="opacity:0.25;">
+      <main class="container mx-auto px-4 sm:px-6 py-10 sm:py-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" style="z-index:0;">
+          <div class="w-full h-full bg-gradient-to-br from-green-900 via-blue-900 to-gray-900" style="opacity:0.25;"></div>
         </div>
-      </div>
-      <div class="relative z-10">
-        <img src="https://primefaces.org/cdn/primevue/images/avatar/annafali.png" alt="Avatar"
-          class="mx-auto mb-6 rounded-full w-32 h-32 border-4 border-green-400 shadow-lg" />
-        <h1
-          class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-green-400 to-blue-100">
-          José Montes
-        </h1>
-        <h2 class="text-2xl md:text-3xl font-semibold text-blue-300 mb-4">Desarrollador Full Stack</h2>
-        <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-          Apasionado por crear experiencias digitales únicas y funcionales. Especializado en Vue, Nuxt, Js, NestJs, Node y diseño moderno.
-        </p>
-        <div class="flex justify-center gap-4 mb-8">
-          <a href="https://github.com/joxmal" target="_blank" class="text-green-400 hover:text-blue-400 text-2xl"><i
-              class="pi pi-github"></i></a>
-          <a href="mailto:joxmal@email.com" class="text-blue-400 hover:text-green-400 text-2xl"><i
-              class="pi pi-envelope"></i></a>
-          <a href="https://linkedin.com/in/joxmal" target="_blank"
-            class="text-green-400 hover:text-blue-400 text-2xl"><i class="pi pi-linkedin"></i></a>
+        <div class="relative z-10 flex flex-col items-center">
+          <img src="https://primefaces.org/cdn/primevue/images/avatar/annafali.png" alt="Avatar"
+            class="mx-auto mb-6 rounded-full w-24 sm:w-32 h-24 sm:h-32 border-4 border-green-400 shadow-lg" />
+          <h1
+            class="text-3xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-blue-500">
+            José Montes
+          </h1>
+          <h2 class="text-lg sm:text-2xl md:text-3xl font-semibold text-blue-300 mb-4">Desarrollador Frontend & UI Designer</h2>
+          <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Apasionado por crear experiencias digitales únicas y funcionales. Especializado en Vue, Nuxt y diseño moderno.
+          </p>
+          <div class="flex justify-center gap-4 mb-8 flex-wrap">
+            <a href="https://github.com/joxmal" target="_blank" class="text-green-400 hover:text-blue-400 text-2xl"><i class="pi pi-github"></i></a>
+            <a href="mailto:joxmal@email.com" class="text-blue-400 hover:text-green-400 text-2xl"><i class="pi pi-envelope"></i></a>
+            <a href="https://linkedin.com/in/joxmal" target="_blank" class="text-green-400 hover:text-blue-400 text-2xl"><i class="pi pi-linkedin"></i></a>
+          </div>
+          <Terminal welcomeMessage="Portafolio iniciado..." prompt="joxmal@portfolio ~ $" aria-label="Portfolio Terminal"
+            style="background-color: rgba(17, 24, 39, 0.8); border: 1px solid #374151;"
+            class="w-full sm:w-2/3 mx-auto text-left" />
         </div>
-        <Terminal welcomeMessage="Portafolio iniciado..." prompt="joxmal@portfolio ~ $" aria-label="Portfolio Terminal"
-          style="background-color: rgba(17, 24, 39, 0.8); border: 1px solid #374151;"
-          class="w-full md:w-2/3 mx-auto text-left h-full" />
-      </div>
-    </main>
+      </main>
     <!-- Sobre mí -->
     <section class="py-16 bg-gradient-to-r from-gray-900 via-blue-950 to-green-900 text-white" ref="aboutMe">
       <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
@@ -86,14 +81,25 @@
           <h2 class="text-4xl font-bold mb-2">Mis Proyectos</h2>
           <p class="text-gray-400">Algunos trabajos y experimentos personales.</p>
         </div>
-        <Galleria auto-play transition-interval="5000" circular :value="projectsData"
-          :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 64rem; margin: auto;">
+        <Galleria auto-play :transition-interval="5000" circular :value="projectsData"
+          :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 58rem; margin: auto;" class="">
           <template #item="slotProps">
-            <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
-              <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+            <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden ">
+              <img
+                :src="slotProps.item.itemImageSrc"
+                :alt="slotProps.item.alt"
+                style="width: 100%; max-height: 50vh; object-fit: contain; display: block; background: #222; border-radius: 0.5rem;"
+              />
               <div class="p-4">
                 <h3 class="text-xl font-bold text-green-400 mb-2">{{ slotProps.item.title }}</h3>
-                <p class="text-gray-300 text-sm">{{ slotProps.item.description }}</p>
+                <p class="text-gray-300 text-sm mb-2">{{ slotProps.item.description }}</p>
+                <!-- Tecnologías aplicadas -->
+                <div v-if="slotProps.item.techs" class="flex flex-wrap gap-3 mb-2">
+                  <div v-for="tech in slotProps.item.techs" :key="tech.name" class="flex items-center gap-1 bg-gray-800 rounded px-2 py-1">
+                    <Icon :name="tech.icon" class="text-xl" />
+                    <span class="text-xs text-green-300">{{ tech.name }}</span>
+                  </div>
+                </div>
                 <a v-if="slotProps.item.link" :href="slotProps.item.link" target="_blank"
                   class="text-blue-400 underline mt-2 inline-block">Ver proyecto</a>
               </div>
@@ -116,21 +122,30 @@
                   <h2 class="text-4xl font-bold mb-2 text-green-300">Habilidades</h2>
                   <p class="text-gray-400">Tecnologías y herramientas que domino.</p>
                 </div>
-                <div class="flex flex-wrap justify-center gap-8">
-                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-48 flex flex-col items-center">
-                    <i class="pi pi-vuejs text-4xl text-green-400 mb-2"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <Icon name="material-icon-theme:vue" class="font-bold text-5xl " />
                     <span class="font-bold text-lg">Vue.js</span>
                   </div>
-                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-48 flex flex-col items-center">
-                    <i class="pi pi-desktop text-4xl text-blue-400 mb-2"></i>
+                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <Icon name="material-icon-theme:nuxt" class="font-bold text-5xl " />
                     <span class="font-bold text-lg">Nuxt.js</span>
                   </div>
-                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-48 flex flex-col items-center">
+                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <Icon name="material-icon-theme:nest" class="font-bold text-5xl " />
+                    <span class="font-bold text-lg">NestJS</span>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <i class="pi pi-node text-4xl text-blue-400 mb-2"></i>
+                    <Icon name="material-icon-theme:nodejs" class="font-bold text-5xl " />
+                    <span class="font-bold text-lg">Node.js</span>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
                     <i class="pi pi-palette text-4xl text-purple-400 mb-2"></i>
                     <span class="font-bold text-lg">UI/UX Design</span>
                   </div>
-                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 w-48 flex flex-col items-center">
-                    <i class="pi pi-code text-4xl text-yellow-400 mb-2"></i>
+                  <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col items-center">
+                    <Icon name="material-icon-theme:typescript" class="font-bold text-5xl " />
                     <span class="font-bold text-lg">JavaScript/TypeScript</span>
                   </div>
                 </div>
@@ -277,6 +292,17 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import Menu from 'primevue/menu';
+
+const toolbarMenu = [
+  { label: 'Sobre Mí', command: () => scrollTo('aboutMe') },
+  { label: 'Proyectos', command: () => scrollTo('projects') },
+  { label: 'Proceso', command: () => scrollTo('process') },
+  { label: 'Testimonios', command: () => scrollTo('testimonials') },
+  { label: 'FAQ', command: () => scrollTo('faq') },
+  { label: 'Contacto', icon: 'pi pi-envelope', command: () => contactModalVisible.value = true },
+];
 import { useToast } from "primevue/usetoast";
 
 const toast = useToast();
@@ -310,12 +336,17 @@ const faqData = ref([
 // Datos para la Galería de Proyectos Personales
 const projectsData = ref([
   {
-    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
-    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
-    alt: 'Portfolio Web',
-    title: 'Portfolio Web',
-    description: 'Mi portafolio personal construido con Nuxt y PrimeVue.',
-    link: 'https://github.com/joxmal/portfolio'
+    itemImageSrc: '/proyects/project1.webp',
+    thumbnailImageSrc: '/proyects/project1_trumb.webp',
+    alt: 'Sass',
+    title: 'Sass y SGI',
+    description: 'Software de gestión integral para pequeñas empresas en la que pueden ver cuentas por cobrar y pagar, inventarios, clientes, proveedores, enviar notificaciones por correo, etc.',
+    link: 'https://github.com/joxmal/portfolio',
+    techs: [
+      { name: 'Nuxt', icon: 'material-icon-theme:nuxt' },
+      { name: 'Pocketbase', icon: 'simple-icons:pocketbase' },
+      { name: 'Node.js', icon: 'material-icon-theme:nodejs' }
+    ]
   },
   {
     itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
