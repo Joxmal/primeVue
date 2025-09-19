@@ -10,7 +10,8 @@
         </div>
       </template>
       <template #end>
-        <div class="hidden md:flex items-center gap-2 [&> *]:transition-colors [&> *]:text-white  [&>*]:hover:text-green-400">
+        <div
+          class="hidden md:flex items-center gap-2 [&> *]:transition-colors [&> *]:text-white  [&>*]:hover:text-green-400">
           <Button label="Sobre Mí" text plain @click="scrollTo('aboutMe')" />
           <Button label="Proyectos" text plain @click="scrollTo('projects')" />
           <Button label="Proceso" text plain @click="scrollTo('process')" />
@@ -20,50 +21,59 @@
         </div>
         <div class="md:hidden flex items-center">
           <Menu ref="menu" :model="toolbarMenu" popup />
-          <Button icon="pi pi-bars" class="p-button-text text-white" @click="$refs.menu.toggle($event)" aria-label="Menú" />
+          <Button icon="pi pi-bars" class="p-button-text text-white" @click="$refs.menu.toggle($event)"
+            aria-label="Menú" />
         </div>
       </template>
     </Toolbar>
 
     <!-- Hero Section Portafolio Personal -->
-      <main class="container mx-auto px-4 sm:px-6 py-10 sm:py-20 text-center relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none" style="z-index:0;">
-          <div class="w-full h-full bg-gradient-to-br from-green-900 via-blue-900 to-gray-900" style="opacity:0.25;"></div>
+    <main class="container mx-auto px-4 sm:px-6 py-10 sm:py-20 text-center relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" style="z-index:0;">
+        <div class="w-full h-full bg-gradient-to-br from-green-900 via-blue-900 to-gray-900" style="opacity:0.25;">
         </div>
-        <div class="relative z-10 flex flex-col items-center">
-          <img src="https://primefaces.org/cdn/primevue/images/avatar/annafali.png" alt="Avatar"
-            class="mx-auto mb-6 rounded-full w-24 sm:w-32 h-24 sm:h-32 border-4 border-green-400 shadow-lg" />
-          <h1
-            class="text-3xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-blue-500">
-            José Montes
-          </h1>
-          <h2 class="text-lg sm:text-2xl md:text-3xl font-semibold text-blue-300 mb-4">Desarrollador Frontend & UI Designer</h2>
-          <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Apasionado por crear experiencias digitales únicas y funcionales. Especializado en Vue, Nuxt y diseño moderno.
-          </p>
-          <div class="flex justify-center gap-4 mb-8 flex-wrap">
-            <a href="https://github.com/joxmal" target="_blank" class="text-green-400 hover:text-blue-400 text-2xl"><i class="pi pi-github"></i></a>
-            <a href="mailto:joxmal@email.com" class="text-blue-400 hover:text-green-400 text-2xl"><i class="pi pi-envelope"></i></a>
-            <a href="https://linkedin.com/in/joxmal" target="_blank" class="text-green-400 hover:text-blue-400 text-2xl"><i class="pi pi-linkedin"></i></a>
-          </div>
-          <Terminal welcomeMessage="Portafolio iniciado..." prompt="joxmal@portfolio ~ $" aria-label="Portfolio Terminal"
-            style="background-color: rgba(17, 24, 39, 0.8); border: 1px solid #374151;"
-            class="w-full sm:w-2/3 mx-auto text-left" />
+      </div>
+      <div class="relative z-10 flex flex-col items-center">
+        <img src="https://primefaces.org/cdn/primevue/images/avatar/annafali.png" alt="Avatar"
+          class="mx-auto mb-6 rounded-full w-24 sm:w-32 h-24 sm:h-32 border-4 border-green-400 shadow-lg" />
+        <h1
+          class="text-3xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-blue-400 to-blue-500">
+          José Montes
+        </h1>
+        <h2 class="text-lg sm:text-2xl md:text-3xl font-semibold text-blue-300 mb-4">Desarrollador Full Stack & UI
+          Designer
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          Apasionado por crear experiencias digitales únicas y funcionales. Especializado en Vue, Nuxt y diseño moderno.
+        </p>
+        <div class="flex justify-center gap-4 mb-8 flex-wrap">
+          <a href="https://github.com/joxmal" target="_blank" class="text-green-400 hover:text-blue-400 text-2xl"><i
+              class="pi pi-github"></i></a>
+          <a href="mailto:joxmal@email.com" class="text-blue-400 hover:text-green-400 text-2xl"><i
+              class="pi pi-envelope"></i></a>
+          <a href="https://linkedin.com/in/joxmal" target="_blank"
+            class="text-green-400 hover:text-blue-400 text-2xl"><i class="pi pi-linkedin"></i></a>
         </div>
-      </main>
+        <Terminal welcomeMessage="Portafolio iniciado..." prompt="joxmal@portfolio ~ $" aria-label="Portfolio Terminal"
+          style="background-color: rgba(17, 24, 39, 0.8); border: 1px solid #374151;"
+          class="w-full sm:w-2/3 mx-auto text-left" />
+      </div>
+    </main>
     <!-- Sobre mí -->
     <section class="py-16 bg-gradient-to-r from-gray-900 via-blue-950 to-green-900 text-white" ref="aboutMe">
       <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-1/2">
           <h2 class="text-4xl font-bold mb-4 text-green-300">Sobre mí</h2>
-          <p class="text-lg text-gray-200 mb-4">Soy desarrollador frontend con más de 4 años de experiencia creando
-            interfaces modernas y funcionales. Me apasiona el diseño, la animación y la optimización web. Siempre busco
-            aprender nuevas tecnologías y mejorar cada proyecto.</p>
+          <p class="text-lg text-gray-200 mb-4">Desarrollador Full Stack con más de 4 años de experiencia, especializado
+            en
+            la creación de interfaces de usuario modernas y de alto rendimiento. Actualmente, compagino mi rol en el
+            sector
+            público con la gestión de proyectos propios en producción y la consultoría freelance, demostrando una gran
+            versatilidad técnica y capacidad de organización.</p>
           <ul class="list-disc pl-6 text-blue-300">
             <li>+4 años de experiencia en desarrollo web</li>
-            <li>Especialista en Vue, Nuxt y Tailwind</li>
+            <li>Especialista en Vue, Nuxt, NestJS</li>
             <li>Enfoque en accesibilidad y rendimiento</li>
-            <li>Colaborador en proyectos open source</li>
           </ul>
         </div>
         <div class="md:w-1/2 flex justify-center">
@@ -82,20 +92,20 @@
           <p class="text-gray-400">Algunos trabajos y experimentos personales.</p>
         </div>
         <Galleria auto-play :transition-interval="5000" circular :value="projectsData"
-          :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 58rem; margin: auto;" class="">
+          :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 58rem; margin: auto;"
+          class="">
           <template #item="slotProps">
             <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden ">
-              <img
-                :src="slotProps.item.itemImageSrc"
-                :alt="slotProps.item.alt"
-                style="width: 100%; max-height: 50vh; object-fit: contain; display: block; background: #222; border-radius: 0.5rem;"
-              />
+              <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt"
+                style="width: 100%; max-height: 45vh; object-fit: contain; display: block; background: #222; border-radius: 0.5rem;" />
               <div class="p-4">
                 <h3 class="text-xl font-bold text-green-400 mb-2">{{ slotProps.item.title }}</h3>
-                <p class="text-gray-300 text-sm mb-2">{{ slotProps.item.description }}</p>
+                <p class="text-gray-300 w-full text-sm mb-2 overflow-hidden text-ellipsis line-clamp-2">{{
+                  slotProps.item.description }}</p>
                 <!-- Tecnologías aplicadas -->
                 <div v-if="slotProps.item.techs" class="flex flex-wrap gap-3 mb-2">
-                  <div v-for="tech in slotProps.item.techs" :key="tech.name" class="flex items-center gap-1 bg-gray-800 rounded px-2 py-1">
+                  <div v-for="tech in slotProps.item.techs" :key="tech.name"
+                    class="flex items-center gap-1 bg-gray-800 rounded px-2 py-1">
                     <Icon :name="tech.icon" class="text-xl" />
                     <span class="text-xs text-green-300">{{ tech.name }}</span>
                   </div>
@@ -349,37 +359,18 @@ const projectsData = ref([
     ]
   },
   {
-    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria2.jpg',
-    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria2s.jpg',
-    alt: 'App de Tareas',
-    title: 'App de Tareas',
-    description: 'Aplicación para gestión de tareas con Vue y Tailwind.',
-    link: 'https://github.com/joxmal/todo-app'
+    itemImageSrc: '/proyects/project2.0.webp',
+    thumbnailImageSrc: '/proyects/project2.1_trumb.webp',
+    alt: 'App de Contabilidad',
+    title: 'App de Contabilidad',
+    description: 'Aplicación para gestión de contabilidad, facturación y reportes financieros. que permite a los usuarios llevar un control detallado de sus finanzas personales y empresariales. Proyecto FreeLance. ',
+    link: 'https://github.com/joxmal/todo-app',
+    techs: [
+      { name: 'VueJs', icon: 'material-icon-theme:vue' },
+      { name: 'NestJs', icon: 'material-icon-theme:nest' },
+      { name: 'MYSQL', icon: 'material-icon-theme:nodejs' }
+    ]
   },
-  {
-    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria3.jpg',
-    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria3s.jpg',
-    alt: 'Landing Page',
-    title: 'Landing Page',
-    description: 'Página de presentación para startups, diseño responsivo.',
-    link: 'https://github.com/joxmal/landing-page'
-  },
-  {
-    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4.jpg',
-    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria4s.jpg',
-    alt: 'Dashboard Admin',
-    title: 'Dashboard Admin',
-    description: 'Panel administrativo con gráficos y gestión de usuarios.',
-    link: 'https://github.com/joxmal/dashboard-admin'
-  },
-  {
-    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria5.jpg',
-    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria5s.jpg',
-    alt: 'Blog Personal',
-    title: 'Blog Personal',
-    description: 'Blog técnico sobre desarrollo web y diseño.',
-    link: 'https://github.com/joxmal/blog'
-  }
 ]);
 const responsiveOptions = ref([
   { breakpoint: '1024px', numVisible: 3 },
